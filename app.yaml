@@ -1,0 +1,13 @@
+runtime: python   # python applicaton
+env: flex      # GCP flexible , charge only using app
+entrypoint: gunicorn -b :$PORT main:application   # entry point -b is binding  : $PORT (suggested by GCP) , main is instances name is application
+
+runtime_config:
+  python_version: 3
+
+manual_scaling:
+  instances: 1   # when try to deploy 
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10
